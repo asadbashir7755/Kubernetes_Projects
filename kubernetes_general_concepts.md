@@ -276,3 +276,57 @@ You don’t care about “replicas,” you care about one per machine.
 DaemonSet = the right choice ✅
 
 If you instead wanted to run a scalable app (like your MERN app), you’d use Deployment because you care about the number of replicas, not “one per node.”
+
+
+container state like running, completed,running, terminating, image pull back , error etc
+
+
+jobs in k8s
+Real-World DevOps Use Cases for Jobs
+Use Case	Purpose
+🧹 Database migration	Run a script once to migrate database schema during app updates.
+🧪 Testing pipeline	Run integration tests automatically after a new build is deployed.
+📤 Data backup / restore	Run a one-time backup task (e.g., dump DB to S3).
+📦 Image building or batch processing	Process a batch of files, generate reports, or convert data.
+🔄 Cleanup tasks	Remove temporary files or expired sessions.
+
+
+
+why we use jobs for simple tasks
+some reasons are
+containerrize ..work everwhere similar
+isolation and safety
+scalibility and scheduling
+
+
+
+BusyBox is a tiny Linux image that contains many basic Linux utilities — like ls, cat, echo, sh, etc.
+It’s often called:
+
+“The Swiss Army Knife of Linux utilities.”
+
+
+cron job  mean scheduling 
+if we want to do something at sometime daily we can use it 
+
+┌───────────── minute (0 - 59)
+│   ┌───────────── hour (0 - 23)
+│   │ ┌───────────── day of month (1 - 31)
+│   │ │ ┌───────────── month (1 - 12)
+│   │ │ │ ┌───────────── day of week (0 - 6) (Sunday=0 or 7)
+│   │ │ │ │
+│   │ │ │ │
+00 12 1 1 5
+
+00 12 1 3 5
+At 12:00 on day-of-month 1 and on Friday in March.”
+refernece crontab guru
+
+
+
+Why only 3 pods show up
+
+Your CronJob automatically cleans up old Jobs and their Pods to avoid filling up the cluster.
+By default, Kubernetes keeps only a limited number of successful and failed jobs in history.
+
+That’s why you only ever see a few recent pods (the old ones are deleted automatically).

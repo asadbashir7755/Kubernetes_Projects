@@ -1,0 +1,46 @@
+apiVersion: batch/v1
+kind: CronJob
+
+metadata:
+  name: databasebackupperminute
+  namespace: nginx
+
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: databasebackuppod
+          labels:
+            app: nginx
+        spec: 
+          containers:
+            - name: databasebackupperminutecont
+              image: busybox
+              command:
+                - sh
+                - -c
+                - >
+                  echo "databasebackup_perminute_cont creating database backup";
+                  mkdir -p /backups &&
+                  mkdir -p /demodata &&
+                  cp -r /demodata /backups &&
+                  echo "database copied"
+              volumeMounts:
+                - name: datavolume
+                  mountPath: /demodata
+                - name: backupvolume
+                  mountPath: /backupdata
+          restartPolicy: OnFailure
+          volumes:
+            - name: datavolume
+              hostPath:
+                path: /demodata
+                type: DirectoryOrCreate
+            - name: backupvolume
+              hostPath:
+                path: /backupdata
+                type: DirectoryOrCreate
+
+

@@ -63,3 +63,12 @@ kubectl rollout status deployment/nginx-deployment
 get rs -n nginx
 
 kubectl get pods --show-labels -n nginx 
+
+kubectl logs nginxjob-xbp7s(pod name) -n nginx
+
+ kubectl get cronjob -n nginx
+
+
+ kubectl get cronjob -n nginx
+
+  kubectl delete -f cronjob.yml

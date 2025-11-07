@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: busyboxdeployment
+  namespace: busybox
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: busyboxpods
+  template:
+    metadata: 
+      name: busyboxpod
+      labels:
+        app: busyboxpods
+    spec:
+      containers:
+        - name: busyboxcontainer
+          image: busybox
+          command:
+            - sh
+            - -c
+            - >
+              echo "file created inside container" > /data/test.txt &&
+              sleep 3600
+          volumeMounts:
+            - name: datavolume
+              mountPath: /data
+      volumes:
+        - name: datavolume
+          persistentVolumeClaim: 
+            claimName: localpresistentvolumeclaim
+
+
+
+
+

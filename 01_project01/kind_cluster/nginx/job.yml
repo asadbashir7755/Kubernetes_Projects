@@ -1,5 +1,5 @@
 apiVersion: batch/v1
-kind: job
+kind: Job
 
 metadata:
   name: nginxjob
@@ -19,3 +19,5 @@ spec:
           image: busybox:latest
           command: ["sh","-c","echo hello world && sleep 10"]
       restartPolicy: Never
+
+      
