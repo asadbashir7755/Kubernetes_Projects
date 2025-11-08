@@ -330,3 +330,20 @@ Your CronJob automatically cleans up old Jobs and their Pods to avoid filling up
 By default, Kubernetes keeps only a limited number of successful and failed jobs in history.
 
 That’s why you only ever see a few recent pods (the old ones are deleted automatically).
+
+
+laberls in k8s deployment 
+Think of selector.matchLabels as a “filter” and template.metadata.labels as “tags.”
+
+The Deployment says: “I will manage every Pod that has the label app=nginx.”
+
+Then the Pod template says: “Every Pod I create will have the label app=nginx.”
+
+That’s how they match — and Kubernetes keeps track of which Pods belong to this Deployment.
+
+Kubernetes still needs the selector.matchLabels to formally connect:
+
+Deployment → ReplicaSet → Pod
+
+
+This makes the system modular, scalable, and safe for updates.
