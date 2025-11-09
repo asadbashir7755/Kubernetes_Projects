@@ -72,3 +72,6 @@ kubectl logs nginxjob-xbp7s(pod name) -n nginx
  kubectl get cronjob -n nginx
 
   kubectl delete -f cronjob.yml
+
+
+  kubectl delete pod --all -n nginx
