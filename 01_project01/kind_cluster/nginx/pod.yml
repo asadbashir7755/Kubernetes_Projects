@@ -1,4 +1,4 @@
-kind: pod
+kind: Pod
 apiVersion: v1
 
 metadata:
@@ -11,4 +11,11 @@ spec:
       image: nginx
       ports:
         - containerPort: 80
+  
+  tolerations:
+    - key: "prod"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+      
 

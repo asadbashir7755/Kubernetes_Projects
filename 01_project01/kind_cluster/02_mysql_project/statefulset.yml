@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: StatefulSet
+
+metadata:
+  name: mysqlstatefulset
+  namespace: mysql
+
+spec:
+  serviceName: mysqlservice
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysqlsecret
+                  key: MYSQL_ROOT_PASSWORD
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: mysqlconfigmap 
+                  key: MYSQL_DATABASE
+
+          volumeMounts:
+            - name: mysqldata
+              mountPath: /var/lib/mysql   
+  volumeClaimTemplates:
+    - metadata:
+        name: mysqldata
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+            # storageClassname: [ "mysqlstorageclass" ]
+        resources:
+          requests:
+            storage: 1Gi
+            
+

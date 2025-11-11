@@ -75,3 +75,29 @@ kubectl logs nginxjob-xbp7s(pod name) -n nginx
 
 
   kubectl delete pod --all -n nginx
+
+watch kubectl  get pods -n mysql
+
+echo "root" | base64
+
+echo -n "rootpassword" | base64
+
+
+kubectl rollout restart deployment <deployment-name>
+
+kubectl taint node twscluster-worker3 prod=true:NoSchedule-
+
+
+ kubectl get pods -n kube-system .............for api service  resource usage
+
+ kubectl top node
+
+ kubectl top pod -n nginx
+
+ curl http:apacheservice.apachenamespace.svc.cluster.local
+
+
+ kubectl run loadgenerator \
+  --image=busybox \
+  -n apachenamespace \
+  -- /bin/sh -c "while true; do :; done"

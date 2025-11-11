@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: mysqlconfigmap
+  namespace: mysql
+
+
+data:
+  MYSQL_DATABASE: mernappdatabase

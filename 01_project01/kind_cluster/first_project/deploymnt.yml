@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: notesappdeployment
+  namespace: notesapp
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notesapp
+  template:
+    metadata:
+      name: noteapp_pod
+      labels:
+        app: notesapp
+    spec:
+      containers:
+        - name: noteappcontainer
+          image: asadbashir7755/k8s_note_app:latest
+          ports:
+            - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8000
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000             
