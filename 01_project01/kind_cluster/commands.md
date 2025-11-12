@@ -101,3 +101,18 @@ kubectl taint node twscluster-worker3 prod=true:NoSchedule-
   --image=busybox \
   -n apachenamespace \
   -- /bin/sh -c "while true; do :; done"
+
+
+
+  kubectl run loadgenerator \
+  --image=curlimages/curl:latest \
+  -n apachenamespace \
+  -- /bin/sh -c "while true; do curl -s http://apacheservice.apachenamespace.svc.cluster.local > /dev/null; done"
+
+kubectl  auth whoami
+
+kubectl auth can-i get pods
+
+kubectl auth can-i get pods -n apache
+
+kubectl auth  can-i get pods -n apachenamespace --as=apache-user

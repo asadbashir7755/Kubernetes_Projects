@@ -1,0 +1,20 @@
+<!-- https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml 
+
+
+dashboard in k8s 
+why we use it 
+above is link of old version new version is not working in this way that is working with helm 
+
+kubectl apply -f dashboardadminuser.yml 
+kubectl -n kubernetes-dashboard create token adminuser
+
+kubectl proxy
+
+
+eyJhbGciOiJSUzI1NiIsImtpZCI6InBwT25GbVI5SEhoSzRVZ1BQYlVWU0sxZHNqM2lZVWQwQmZRUGw1ckEzSDQifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzYyODkwMzgwLCJpYXQiOjE3NjI4ODY3ODAsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwianRpIjoiYTVkZjE4MmYtNjU1NC00ODZmLTg4NTAtYzFhZWRjM2U0MmQ1Iiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJhZG1pbnVzZXIiLCJ1aWQiOiIwZTJiNTUxOS1kOGQ2LTRjZjAtYTlkMS00ZWJlZWM3ZDY4OWQifX0sIm5iZiI6MTc2Mjg4Njc4MCwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omt1YmVybmV0ZXMtZGFzaGJvYXJkOmFkbWludXNlciJ9.MabrVJixFnakuFOuf0Xfvn_LngGZB1xoJlthbFCWCEKNhZdRD2VHAk3o6-5J_-MR5UiqK-rH93YcSOU5eIynTHD9xncxqn8WLlz9lXGF0wievxggaEiIhu-drIKYIXl5h3BnTozVJeHE-9HDgZlMaVG7cs4R11KsWzDhk5hYJ_9O6xXZJfbyEq9EYC2mI16p0qr4eb11lEIihjGRh-AoRfXVUDcW_R-yLn2jB3oUYpIpRNn70UhAbbPEXzrUK1VPunXKV17HKM7CFpO9sDdDsgPhSC8Ap3NnWpd9-3-_4hibQDxcAMTewbUOAxTTZ6qxFl7IfxgdgxEGMX11WckBhg
+
+
+ kubectl proxy --address=0.0.0.0
+
+ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+ 

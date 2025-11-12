@@ -1,0 +1,13 @@
+apiVersion: devopsbatchgroup.com/v1
+kind: DevOpsBatch
+
+
+metadata:
+  name: devopsbatch1
+
+spec:
+  name: Devopsbatch zero to hero
+  duration: 3 months
+  platform: youtube
+  mode: live
+  

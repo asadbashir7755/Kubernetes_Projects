@@ -9,3 +9,8 @@ and in vertical we use vpa mean increase specifications of pods instead of incre
 
 
 keda apply  hpa or vpa base on  events /matric 
+
+
+for vpa have to install git  repo 
+
+https://github.com/kubernetes/autoscaler.git
