@@ -116,3 +116,8 @@ kubectl auth can-i get pods
 kubectl auth can-i get pods -n apache
 
 kubectl auth  can-i get pods -n apachenamespace --as=apache-user
+
+
+$ kubectl port-forward svc/dev-apache-apache-helm 8080:80 -n apache --address=0.0.0.0
+
+helm list --all

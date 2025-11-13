@@ -258,3 +258,12 @@ Database	DB container	StatefulSet / Deployment + PersistentVolume
 Communication	Docker network (manual)	Cluster DNS (automatic)
 Routing	Nginx.conf manual	Ingress rules
 Scaling	docker-compose up --scale	kubectl scale deployment
+
+
+
+Resource Type	API Group	apiVersion value
+Pod, Service, ConfigMap, Secret	core group (no name)	v1
+Deployment, ReplicaSet, DaemonSet, StatefulSet	apps	apps/v1
+Role, RoleBinding, ClusterRole	rbac.authorization.k8s.io	rbac.authorization.k8s.io/v1
+Ingress	networking.k8s.io	networking.k8s.io/v1
+CRD (CustomResourceDefinition)	apiextensions.k8s.io	apiextensions.k8s.io/v1
